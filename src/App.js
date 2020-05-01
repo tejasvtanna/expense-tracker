@@ -31,21 +31,26 @@ function App() {
    }
 
    const handleSubmit = (e) => {
+      debugger
       e.preventDefault()
       if (charge === '' || amount === 0) {
          handleAlert('danger', 'Invalid value')
-      } else if (setEditId === '') {
+      } else if (editId === '') {
          const newExpense = { id: uuid(), charge, amount }
          setExpenses([...expenses, newExpense])
          handleAlert('success', 'Item added')
          setCharge('')
          setAmount('')
       } else {
-         const expList = [...expenses]
-         const idx = expList.findIndex((e) => e.id === editId)
-         expList[idx].charge = charge
-         expList[idx].amount = amount
-         setExpenses(expList)
+         //  const expList = [...expenses]
+         //  const idx = expList.findIndex((e) => e.id === editId)
+         //  expList[idx].charge = charge
+         //  expList[idx].amount = amount
+         //  setExpenses(expList)
+         const tempExpenses = expenses.map((item) =>
+            item.id === editId ? { ...item, charge, amount } : item
+         )
+         setExpenses(tempExpenses)
          setEditId('')
          setCharge('')
          setAmount('')
