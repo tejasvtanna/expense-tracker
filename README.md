@@ -1,1 +1,1 @@
-Live Demo of Project https://github.com/tejasvtanna/expense-tracker
+See Live Demo of Project at https://tejasvtanna.github.io/expense-tracker/
